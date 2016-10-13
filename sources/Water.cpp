@@ -39,7 +39,7 @@ GLuint Water::getPlaneUniform() {
 }
 
 
-void Water::render(Camera* camera,Lights &lights,Terrain *terrain , Skybox *skybox, WindowClass &window) {
+void Water::render(Camera* camera,Lights &scene_lights,Terrain *terrain , Skybox *skybox, WindowClass &window) {
 	Renderer *MeshRenderer = Renderer::getInstance();
 	add_uniform_1f(time, string("time"));
 	{
@@ -53,8 +53,8 @@ void Water::render(Camera* camera,Lights &lights,Terrain *terrain , Skybox *skyb
 		camera->move(vec3(camera->getPosition().x, camera->getPosition().y - distance, camera->getPosition().z));
 
 		MeshRenderer->add_Uniform_Meshes_4f(0, plane.r, plane.g, plane.b, -0.*getPosition().y, string("vertex.vert"), string("fragment.frag"), string("plane"));
-		MeshRenderer->render(camera->getProjectionMatrix(), camera->getViewMatrix(), lights);
-		terrain->render(camera->getViewMatrix(), camera->getProjectionMatrix(), lights);
+		MeshRenderer->render(camera->getProjectionMatrix(), camera->getViewMatrix(), scene_lights);
+		terrain->render(camera->getViewMatrix(), camera->getProjectionMatrix(), scene_lights);
 		skybox->render(camera->getProjectionMatrix(), camera->getViewMatrix());
 		waterFBO->UnBindFrameBuffer();
 		camera->invert_pitch();
@@ -70,8 +70,8 @@ void Water::render(Camera* camera,Lights &lights,Terrain *terrain , Skybox *skyb
 		Draw(false);
 		
 		MeshRenderer->add_Uniform_Meshes_4f(0, plane.r, -plane.g, plane.b, 40 * getPosition().y, string("vertex.vert"), string("fragment.frag"), string("plane"));
-		MeshRenderer->render(camera->getProjectionMatrix(), camera->getViewMatrix(), lights);
-		terrain->render(camera->getViewMatrix(), camera->getProjectionMatrix(), lights);
+		MeshRenderer->render(camera->getProjectionMatrix(), camera->getViewMatrix(), scene_lights);
+		terrain->render(camera->getViewMatrix(), camera->getProjectionMatrix(), scene_lights);
 		skybox->render(camera->getProjectionMatrix(), camera->getViewMatrix());
 		waterFBO->UnBindFrameBuffer();
 		window.clipDistance(0, false);

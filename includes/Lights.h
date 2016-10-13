@@ -2,23 +2,23 @@
 
 
 #include "Light.h"
-
+#include <vector>
 class Lights {
 
 public:
-	Lights() { LightsArray =  std::list<Light*>(); }
-	Lights(std::list<Light*> &list);
+	Lights() { LightsArray =  std::vector<Light*>(); }
+	Lights(std::vector<Light*> &list);
 
 	~Lights();
 
 
-	std::list<Light*> &getLights() { return LightsArray; }
+	std::vector <Light*> &getLights() { return LightsArray; }
 	void addLight(Light *light) { LightsArray.push_back(light); }
 	
 
 private:
 
-	std::list<Light*> LightsArray;
+	std::vector<Light*> LightsArray;
 
 
 

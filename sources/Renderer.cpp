@@ -158,33 +158,6 @@ void Renderer::render(mat4 &projection, mat4 &view, Lights &lights) {
 
 	
 	
-	/*for_each(batches->begin(), batches->end(), [&projection,&view,&lights](pair<Material, Mesh*> *paire ) {
-		if (paire->second != nullptr) {
-			(paire->first).Bind();
-			(paire->second)->Load(view, projection, lights);
-			(paire->first).UnBind();
-		}
-															});
-	
-	
-	
-	
-	
-	
-	
-	//just for testing
-	/*
-	for (list<pair<Material, list<Mesh*>*>*>::iterator it = objects->begin(); it != objects->end();it++) {
-		 ((*it)->first).Bind();
-		 for (list<Mesh*>::iterator it2 = ((*it)->second)->begin(); it2 != ((*it)->second)->end(); it2++) {
-			 (*it2)->Load(view, projection, lights);
-		 }
-
-
-		 ((*it)->first).UnBind();
-			
-
-	}*/
 
 
 }

@@ -7,6 +7,7 @@
 #include "WaterRenderer.h"
 #include "Water.h"
 #include "GUI.h"
+#include "PointLight.h"
 #include <time.h>
 #define WIDTH 1080
 #define HEIGHT 900
@@ -26,7 +27,7 @@ const vec4 plane(0, 1, 0, 1);
 
 
 
-Lights lights = Lights(list<Light*>());
+Lights lights = Lights(vector<Light*>());
 GLfloat intensity = 100.F;
 glm::vec3 attenuation(10, 10, 10);
 float reflectivity = 1;
@@ -110,6 +111,7 @@ int main(int argc, char**argv) {
 		Lights* pointer_to_light;
 		pointer_to_light = &lights;
 		Terrain* terrain = new Terrain(100, 0, 0, terrain_material, pointer_to_light);
+		
 		float angle = 0.F;
 		float fact = 0.5F;
 
@@ -135,18 +137,17 @@ int main(int argc, char**argv) {
 		
 		//tree->setPosition(vec3(6, 0, 3));
 		
-	Light* sun = new Light(vec3(0, 500, 0), vec3(0.8, 0.9, 0.7), 600000.F, vec3(10, 10, 10), string("lightPos[" + to_string(6) + "]"), string("lightColor[" + to_string(6) + "]"), string("lightIntensity[" + to_string(6) + "]"), string("attenuation[" + to_string(6) + "]"), shader.getProgram());
-	lights.addLight(new Light(lightpos, lightColor, intensity, attenuation, string("lightPos[" + to_string(0) + "]"), string("lightColor[" + to_string(0) + "]"), string("lightIntensity[" + to_string(0) + "]"), string("attenuation[" + to_string(0) + "]"),shader.getProgram()));
-	lights.addLight(new Light(vec3(4, 2, 4), vec3(0.6, 0.4, 0.3), 60.F, vec3(100, 1000, 10), string("lightPos[" + to_string(1) + "]"), string("lightColor[" + to_string(1) + "]"), string("lightIntensity[" + to_string(1) + "]"), string("attenuation[" + to_string(1) + "]"), shader.getProgram()));
-	lights.addLight(new Light(vec3(-4, 2, -4),vec3(0.9, 0.7, 0.5), 50.F,vec3(10, 10, 10), string("lightPos[" + to_string(2) + "]"), string("lightColor[" + to_string(2) + "]"), string("lightIntensity[" + to_string(2) + "]"), string("attenuation[" + to_string(2) + "]"), shader.getProgram()));
-	lights.addLight(new Light(vec3(-6, 2, -3), vec3(0.9, 0.4, 0.7), 40.F, vec3(10,100,10), string("lightPos[" + to_string(3) + "]"), string("lightColor[" + to_string(3) + "]"), string("lightIntensity[" + to_string(3) + "]"), string("attenuation[" + to_string(3) + "]"), shader.getProgram()));
-	lights.addLight(new Light(vec3(-2, 1, -3), vec3(0.3, 0.7, 0.9), 40.F, vec3(10, 10, 10), string("lightPos[" + to_string(4) + "]"), string("lightColor[" + to_string(4) + "]"), string("lightIntensity[" + to_string(4) + "]"), string("attenuation[" + to_string(4) + "]"), shader.getProgram()));
-	lights.addLight(new Light(vec3(1, 1, 0), vec3(0.4, 0.8, 0.3), 20.F, vec3(10, 10, 10), string("lightPos[" + to_string(5) + "]"), string("lightColor[" + to_string(5) + "]"), string("lightIntensity[" + to_string(5) + "]"), string("attenuation[" + to_string(5) + "]"), shader.getProgram()));
+	Light* sun = new PointLight(vec3(0, 500, 0), vec3(0.8, 0.9, 0.7), 600000.F, vec3(10, 10, 10), string("lightPos[" + to_string(6) + "]"), string("lightColor[" + to_string(6) + "]"), string("lightIntensity[" + to_string(6) + "]"), string("attenuation[" + to_string(6) + "]"));
+	lights.addLight(new PointLight(lightpos, lightColor, intensity, attenuation, string("lightPos[" + to_string(0) + "]"), string("lightColor[" + to_string(0) + "]"), string("lightIntensity[" + to_string(0) + "]"), string("attenuation[" + to_string(0) + "]")));
+	lights.addLight(new PointLight(vec3(4, 1, 4), vec3(0.6, 0.4, 0.3), 60.F, vec3(100, 1000, 10), string("lightPos[" + to_string(1) + "]"), string("lightColor[" + to_string(1) + "]"), string("lightIntensity[" + to_string(1) + "]"), string("attenuation[" + to_string(1) + "]")));
+	lights.addLight(new PointLight(vec3(-4, 1, -4),vec3(0.9, 0.7, 0.5), 60.F,vec3(10, 10, 10), string("lightPos[" + to_string(2) + "]"), string("lightColor[" + to_string(2) + "]"), string("lightIntensity[" + to_string(2) + "]"), string("attenuation[" + to_string(2) + "]")));
+	lights.addLight(new PointLight(vec3(-10, 1, -3), vec3(0.9, 0.3, 0.2), 60.F, vec3(10,100,10), string("lightPos[" + to_string(3) + "]"), string("lightColor[" + to_string(3) + "]"), string("lightIntensity[" + to_string(3) + "]"), string("attenuation[" + to_string(3) + "]")));
+	lights.addLight(new PointLight(vec3(10, 1, -3), vec3(0.3, 0.7, 0.9), 30.F, vec3(10, 10, 10), string("lightPos[" + to_string(4) + "]"), string("lightColor[" + to_string(4) + "]"), string("lightIntensity[" + to_string(4) + "]"), string("attenuation[" + to_string(4) + "]")));
+	lights.addLight(new PointLight(vec3(7, 1, 0), vec3(0.4, 0.8, 0.3), 20.F, vec3(10, 10, 10), string("lightPos[" + to_string(5) + "]"), string("lightColor[" + to_string(5) + "]"), string("lightIntensity[" + to_string(5) + "]"), string("attenuation[" + to_string(5) + "]")));
 	lights.addLight(sun);
 	
-	
-	
 
+	
 	
 	while (window.getRun()) {
 	
@@ -259,16 +260,13 @@ int main(int argc, char**argv) {
 
 
 		int k = 0;
-		for (list<Light*>::iterator it = lights.getLights().begin(); it != lights.getLights().end(); it++)
-		{
-			if (selector == k) {
-				(*it)->setPosition(translation);
-				(*it)->setColor(lightColor);
-				(*it)->setAttenuation(attenuation);
-				(*it)->setIntensity(intensity);
-			}
-			k++;
-		}
+		vec3 t = translation; 
+		vec3 c = lightColor; 
+		vec3 at = attenuation; 
+		float inte = intensity;
+	
+
+	
 		
 	
 		 

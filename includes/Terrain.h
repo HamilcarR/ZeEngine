@@ -23,7 +23,7 @@ public:
 	void Bind();
 	void setScale(glm::vec3& scale);
 	void render(glm::mat4 view, glm::mat4 projection, Lights lights);
-
+	
 	
 private:
 	int m_size;

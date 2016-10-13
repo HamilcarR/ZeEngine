@@ -26,7 +26,7 @@ out vec3 colorI;
 out vec4 modelview;
 out vec3 posCamera;
 out mat4 modelOut;
-
+out mat3 TANGENT_SPACE;
 
 
 void main(){
@@ -34,7 +34,7 @@ vec4 worldPos=model*vec4(vertex,1.0);
 vec4 mo=projection*view*worldPos;
 gl_Position=mo;
 
-tex=vec2(textureCoords.x,-textureCoords.y) ;
+tex=vec2(textureCoords.x,-textureCoords.y) * 2.F ;
 
 modelview=projection*view*model*vec4(vertex.x,vertex.y,vertex.z,1.0);      //to clip space...y = 0
 
@@ -50,7 +50,7 @@ vec3 tang=normalize( (model*vec4(tangents,1.0)).xyz);
 
 vec3 bitang=normalize(cross (norm,tang));
 
-mat3 TANGENT_SPACE= mat3( tang.x , bitang.x , norm.x ,
+ TANGENT_SPACE= mat3( tang.x , bitang.x , norm.x ,
 					  tang.y , bitang.y , norm.y ,
 					  tang.z , bitang.z , norm.z );
 

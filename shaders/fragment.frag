@@ -45,7 +45,7 @@ float attenuationFact=attenuation[i].x+(attenuation[i].y*dist)+(attenuation[i].z
 vec3 unitToLight=normalize(toLight[i]);
 vec3 unitFromLight= - unitToLight;
 
-vec3 reflectedLight=reflect(unitFromLight,Inormales);
+vec3 reflectedLight=reflect(unitFromLight,unitNormal);
 float specular= max(dot(reflectedLight,unitToCamera),0.0F);
 float damping= pow(specular,shineDamping);
 finalSpec += damping*lightColor[i]*reflectivity;
@@ -54,14 +54,14 @@ vec3 diffuse= brightness * lightColor[i]*(lightIntensity[i]);
 total+=diffuse/attenuationFact;
 }
 
-vec4 tex=texture2D(diffuse,interpolatedTex)/3;
+vec4 tex=texture2D(diffuse,interpolatedTex);
 vec4 op=texture2D(opacity,interpolatedTex);
 
 
 if(op.rgb!=vec3(1,1,1)){
 
-	//color=vec4(total,1.0)*tex;
-	color=mix(vec4(total,1.0),tex,0.5);
+	 color=vec4(total,1.0)*tex+vec4(finalSpec,1.);
+	//color=mix(vec4(total,1.0),tex,0.7);
 }
 else
 discard;

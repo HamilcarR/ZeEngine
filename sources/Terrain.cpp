@@ -142,10 +142,10 @@ void Terrain::render(glm::mat4 view, glm::mat4 projection, Lights lights){
 	glUniform1i(glGetUniformLocation(material->getShader()->getProgram(), "lightNumber"), lights.getLights().size());
 
 
-	list<Light*> lists = lights.getLights();
-	for (list<Light*>::iterator it = lists.begin(); it != lists.end(); it++) {
+	vector<Light*> lists = lights.getLights();
+	for (vector<Light*>::iterator it = lists.begin(); it != lists.end(); it++) {
 
-		(*it)->BindUniform();
+		(*it)->BindUniform(material->getShader()->getProgram());
 	}
 
 	glBindVertexArray(vao);

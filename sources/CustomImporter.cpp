@@ -202,12 +202,11 @@ list<Mesh*> * CustomImporter::LoadMesh(string &path,ShaderReader &shader) {
 
 
 
-					Material material(path,3, shader.getVertex(),shader.getFragment(), 100.F, 0.5F,0);
+					Material material(path,3, shader.getVertex(),shader.getFragment(), 10.F, 0.05F,0);
 					
 					Mesh * mesh = new Mesh(vertex, color, UV, index, normals,tangent, indexSize, vertexSize, UVSize,material);
 					
-					
-				   liste->push_back(mesh);
+					liste->push_back(mesh);
 
 				   delete[] vertex;
 				   delete[] normals;

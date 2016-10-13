@@ -247,8 +247,8 @@ void Mesh::Load( glm::mat4 view,glm::mat4 projection,Lights &light ) {
 		glUniformMatrix4fv(uniform_view, 1, GL_FALSE, glm::value_ptr(view));
 		glUniform1i(uniform_lightNumber, lights.getLights().size());
 
-
-		for_each(lights.getLights().begin(), lights.getLights().end(), [](Light* M) {M->BindUniform(); });
+		Material m = material;
+		for_each(lights.getLights().begin(), lights.getLights().end(), [&m](Light* M) {M->BindUniform(m.getShader()->getProgram()); });
 
 		glBindVertexArray(vao);
 

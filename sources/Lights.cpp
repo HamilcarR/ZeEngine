@@ -1,10 +1,12 @@
+
+
 #include "Lights.h"
 
 
 
+using namespace std;
 
-
-Lights::Lights(std::list<Light*> &list) :LightsArray(list) 
+Lights::Lights(vector<Light*> &list) :LightsArray(list) 
 {
 
 }
@@ -15,3 +17,5 @@ Lights::~Lights() {
 	LightsArray.clear();
 		
 }
+
+
