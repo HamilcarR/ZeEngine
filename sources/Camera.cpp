@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "../includes/Camera.h"
 #include <math.h>
 using namespace std;
 using namespace glm;
@@ -158,7 +158,7 @@ mat4 Camera::getProjectionMatrix() {
 }
 
 
-void Camera::move(vec3 &pos) {
+void Camera::move(const vec3 &pos) {
 	m_position = pos;
 }
 

@@ -1,7 +1,6 @@
-#pragma once
 
-#include "Renderer.h"
-#include "Mesh.h"
+#include "../includes/Renderer.h"
+#include "../includes/Mesh.h"
 #include <ctime>
 
 
@@ -224,7 +223,8 @@ void Mesh::Load( glm::mat4 view,glm::mat4 projection,Lights &light ) {
 	if (isDrawn) {
 		model = mat4(1.0);
 		setPosition(position);
-		setRotation(vec3(rotation), rotation.a);
+		vec3 rot(rotation); 
+		setRotation(rot, rotation.a);
 		setScale(scale);
 		if (isTransparent()) {
 			glDisable(GL_CULL_FACE);
@@ -281,7 +281,8 @@ void Mesh::Load(mat4 &projection) {
 	if (isDrawn) {
 		model = mat4(1.0);
 		setPosition(position);
-		setRotation(vec3(rotation), rotation.a);
+		vec3 rot(rotation);
+		setRotation(rot, rotation.a);
 		setScale(scale);
 		if (isTransparent()) {
 			glDisable(GL_CULL_FACE);
@@ -363,7 +364,7 @@ void Mesh::refresh_Uniform_4f(float arg0,float arg1,float arg2,float arg3,float 
 
 	}
 	else
-		throw new exception("array[5] in refresh_uniform_4f not found!");
+		throw new runtime_error("array[5] in refresh_uniform_4f not found!");
 }
 
 

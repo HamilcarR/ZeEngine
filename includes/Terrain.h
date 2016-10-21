@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef TERRAIN_H
+#define TERRAIN_H
 
 
 #include "CustomImporter.h"
@@ -50,4 +50,4 @@ private:
 	Lights *light_list;
 };
 
-
+#endif

@@ -1,4 +1,4 @@
-#include "Light.h"
+#include "../includes/Light.h"
 
 using namespace std; 
 using namespace glm; 

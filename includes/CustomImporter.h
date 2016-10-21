@@ -1,10 +1,10 @@
-#pragma once
-
+#ifndef CUSTOMIMPORTER_H
+#define CUSTOMIMPORTER_H
 
 #include "Camera.h"
-#include <assimp\Importer.hpp>
-#include <assimp\scene.h>
-#include <assimp\postprocess.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 
  class CustomImporter
@@ -37,4 +37,4 @@ private:
 
 
 };
-
+#endif

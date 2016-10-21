@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef CAMERA_H
+#define CAMERA_H
 #include "WindowClass.h"
 
 class Camera
@@ -16,7 +16,7 @@ public:
 
 	void orienter(int xRel, int yRel);
 	void invert_pitch();
-	void move(glm::vec3 &position);
+	void move(const glm::vec3 &position);
 	glm::vec3 getPosition() { return m_position; }
 
 private:
@@ -40,3 +40,4 @@ private:
 
 };
 
+#endif

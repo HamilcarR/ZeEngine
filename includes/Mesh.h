@@ -1,5 +1,5 @@
-
-#pragma once
+#ifndef MESH_H
+#define MESH_H
 
 
 #include "Lights.h"
@@ -85,17 +85,6 @@ private:
 	std::vector<std::vector<float>> m_optional_uniform_1;
 
 	
-
-	
-
-
-
-
-
-
-
-
-
 	/* test*/
 
 	ShaderReader* m_shader;
@@ -107,4 +96,4 @@ protected:
 };
 
 
-
+#endif

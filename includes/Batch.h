@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BATCH_H
+#define BATCH_H
 
 #include "Mesh.h"
 
@@ -18,4 +19,4 @@ private:
 	GLfloat *TextureArray;
 
 };
-
+#endif

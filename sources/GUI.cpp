@@ -1,9 +1,9 @@
-#include "GUI.h"
-#include "Renderer.h"
+#include "../includes/GUI.h"
+#include "../includes/Renderer.h"
 using namespace std;
 using namespace glm;
 
-GUI::GUI(std::string &model, ShaderReader &shader, bool transparency, bool isDrawn) : MasterObject()
+GUI::GUI(std::string model, ShaderReader shader, bool transparency, bool isDrawn) : MasterObject()
 {
 
 	Renderer *renderer = Renderer::getInstance();
@@ -15,7 +15,8 @@ GUI::GUI(std::string &model, ShaderReader &shader, bool transparency, bool isDra
 		for (Mesh* mesh : *liste) {
 			mesh->setTransparency(transparency);
 			mesh->setDraw(isDrawn);
-			mesh->setRotation(vec3(1, 0, 0), rotation.a);
+			vec3 A(1,0,0); 
+			mesh->setRotation(A, rotation.a);
 		}
 	
 	
@@ -33,7 +34,7 @@ GUI::~GUI()
 
 
 
-void GUI::render(mat4& projection) {
+void GUI::render(mat4 projection) {
 	
 	for (list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++)
 		(*it)->Load(projection);

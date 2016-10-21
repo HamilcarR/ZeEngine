@@ -1,4 +1,4 @@
-#include "Terrain.h"
+#include "../includes/Terrain.h"
 
 #define SIZE 200
 using namespace std;

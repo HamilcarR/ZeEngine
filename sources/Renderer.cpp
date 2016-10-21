@@ -1,4 +1,4 @@
-#include "Renderer.h"
+#include "../includes/Renderer.h"
 
 Renderer *Renderer::instance = 0;
 using namespace glm;
@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-void Renderer::setScaleObjects(vec3& scale) {
+void Renderer::setScaleObjects(vec3 scale) {
 	
 	for (pair<Material, list<Mesh*>*> * M : *objects) {
 		for_each(M->second->begin(), M->second->end(), [&scale](Mesh* mesh) {mesh->setScale(scale);   });
@@ -114,7 +114,7 @@ Material& Renderer::getMaterial(int a) {
 
 
 
-void Renderer::add_Uniform_Meshes_4f(float arg0, float arg1, float arg2, float arg3, float arg4,string& vert,string& frag,string& name) {
+void Renderer::add_Uniform_Meshes_4f(float arg0, float arg1, float arg2, float arg3, float arg4,const string vert,const string frag,const string name) {
 
 	for (pair<Material, Mesh* > * M : *batches) {
 		Mesh* D = M->second;
@@ -150,7 +150,7 @@ void Renderer::add_Uniform_Meshes_4f(float arg0, float arg1, float arg2, float a
 
 
 
-void Renderer::render(mat4 &projection, mat4 &view, Lights &lights) {
+void Renderer::render(mat4 projection, mat4 view, Lights &lights) {
 	
 	
 	render_static_meshes(projection, view, lights);
@@ -320,7 +320,7 @@ void Renderer::add_dynamic_mesh(list<Mesh*> *mesh) {
 
 
 
-void Renderer::render_GUI(mat4 &projection) {
+void Renderer::render_GUI(mat4 projection) {
 	
 	glDisable(GL_DEPTH_TEST);
 	for (list<pair<Material, list<Mesh*>*>*>::iterator it = m_GUI->begin(); it != m_GUI->end(); it++) {
@@ -338,7 +338,7 @@ void Renderer::render_GUI(mat4 &projection) {
 
 
 
-void Renderer::render_dynamic_meshes(mat4 &projection, mat4 &view, Lights &lights) {
+void Renderer::render_dynamic_meshes(mat4 projection, mat4 view, Lights &lights) {
 	for (list<pair<Material, list<Mesh*>*>*>::iterator it = objects->begin(); it != objects->end(); it++) {
 		((*it)->first).Bind();
 		for (list<Mesh*>::iterator it2 = ((*it)->second)->begin(); it2 != ((*it)->second)->end(); it2++) {
@@ -352,7 +352,7 @@ void Renderer::render_dynamic_meshes(mat4 &projection, mat4 &view, Lights &light
 	}
 }
 
-void Renderer::render_static_meshes(mat4& projection, mat4 &view, Lights &lights) {
+void Renderer::render_static_meshes(mat4 projection, mat4 view, Lights &lights) {
 	for_each(batches->begin(), batches->end(), [&projection, &view, &lights](pair<Material, Mesh*> *paire) {
 		if (paire->second != nullptr) {
 			(paire->first).Bind();

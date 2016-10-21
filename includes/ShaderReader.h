@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef SHADERREADER_H
+#define SHADERREADER_H
 
 #include "Texture.h"
 
@@ -8,7 +8,7 @@ class ShaderReader
 {
 public:
 	ShaderReader();
-	ShaderReader(std::string &vertexS,std::string &fragmentS);
+	ShaderReader(std::string vertexS,std::string fragmentS);
 	~ShaderReader();
 	void useProgram(bool useProgram);
 	void checkCompilation(GLuint shader);
@@ -26,3 +26,4 @@ private:
 	std::string fragmentP;
 };
 
+#endif

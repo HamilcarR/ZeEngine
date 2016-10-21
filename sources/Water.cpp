@@ -1,12 +1,17 @@
-#include "Water.h"
-#include "CustomImporter.h"
-#include "Texture.h"
+#include "../includes/Water.h"
+#include "../includes/CustomImporter.h"
+#include "../includes/Texture.h"
 using namespace std;
 using namespace glm;
 
 const vec4 plane(0, 1, 0, 1);
 const float DELTA_TIME = 0.00001f;
-Water::Water(string &model, ShaderReader &shader, bool transparency, bool isDrawn,bool isStatic) : MasterObject(model, shader, transparency, isDrawn,isStatic)
+ string dudv= "../../res/textures/dudv.png";
+ string water_normal = "../../res/Textures/water-n.png";
+ string refr = "refractionTexWater"; 
+ string refl = "reflectionTexWater";
+
+Water::Water(string model, ShaderReader shader, bool transparency, bool isDrawn,bool isStatic) : MasterObject(model, shader, transparency, isDrawn,isStatic)
 {
 
 
@@ -14,18 +19,23 @@ Water::Water(string &model, ShaderReader &shader, bool transparency, bool isDraw
 	waterFBO =new WaterRenderer(); 
 	time = 0.f; 
 	TextureArray* reference = TextureArray::getInstance(); 
-	reference->addTexture(string("res/textures/dudv.png"));
-	reference->addTexture(string("res/textures/water-n.png"));
-	Texture* W = reference->getTexture(string("res/textures/dudv.png"));
-	Texture* N = reference->getTexture(string("res/textures/water-n.png"));
-	Texture* A = reference->getTexture(string("refractionTexWater"));
-	Texture* B = reference->getTexture(string("reflectionTexWater"));
+	
+	
+	
+	reference->addTexture(dudv);
+	reference->addTexture(water_normal);
+	Texture* W = reference->getTexture(dudv);
+	Texture* N = reference->getTexture(water_normal);
+	Texture* A = reference->getTexture(refr);
+	Texture* B = reference->getTexture(refl);
 	addTexture_Material(A);
 	setTexture(B, 0);
 	addTexture_Material(W);
 	setTexture(N, 1);
-	setPosition(vec3(10, 0.01, 10));
-    setScale(vec3(50, 1, 50));
+	vec3 pos = vec3(10,0.01,10);
+	vec3 scale = vec3(50,1,50); 
+	setPosition(pos);
+    	setScale(scale);
 }
 
 
@@ -41,7 +51,8 @@ GLuint Water::getPlaneUniform() {
 
 void Water::render(Camera* camera,Lights &scene_lights,Terrain *terrain , Skybox *skybox, WindowClass &window) {
 	Renderer *MeshRenderer = Renderer::getInstance();
-	add_uniform_1f(time, string("time"));
+	string timev = "time";
+	add_uniform_1f(time, timev);
 	{
 		window.clipDistance(0, true);
 		waterFBO->BindReflectionBuffer();

@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef POINTLIGHT_H
+#define POINTLIGHT_H
 
 
 #include "Material.h"
@@ -23,4 +23,4 @@ private:
 	glm::vec3 attenuation;
 	GLuint uniform_attenuationI;
 };
-
+#endif

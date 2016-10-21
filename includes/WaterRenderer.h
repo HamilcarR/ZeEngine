@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WATERRENDERER_H
+#define WATERRENDERER_H
 #include "Terrain.h"
 #include "MasterObject.h"
 #include "Renderer.h"
@@ -42,4 +43,4 @@ private:
 
 
 };
-
+#endif

@@ -1,4 +1,4 @@
-#include "Texture.h"
+#include "../includes/Texture.h"
 
 
 TextureArray* TextureArray::instance = 0;

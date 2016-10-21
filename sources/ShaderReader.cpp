@@ -1,8 +1,8 @@
-#include "ShaderReader.h"
+#include "../includes/ShaderReader.h"
 
 
 using namespace std;
-ShaderReader::ShaderReader(string &vertexS,string &fragmentS)
+ShaderReader::ShaderReader(string vertexS,string fragmentS)
 {
 
 	vertexP = vertexS;

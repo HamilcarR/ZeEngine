@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef LIGHTS_H
+#define LIGHTS_H
 
 #include "Light.h"
 #include <vector>
@@ -7,7 +7,7 @@ class Lights {
 
 public:
 	Lights() { LightsArray =  std::vector<Light*>(); }
-	Lights(std::vector<Light*> &list);
+	Lights(std::vector<Light*> list);
 
 	~Lights();
 
@@ -23,4 +23,4 @@ private:
 
 
 };
-
+#endif

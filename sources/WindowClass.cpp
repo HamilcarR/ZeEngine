@@ -1,4 +1,4 @@
-#include "WindowClass.h"
+#include "../includes/WindowClass.h"
 
 
 using namespace std;
@@ -86,7 +86,7 @@ void WindowClass::clipDistance(int clip,bool val) {
 	else if (val && clip <= 5 && clip >= 0)
 		glEnable(GL_CLIP_DISTANCE0 + clip);
 	else
-		throw new exception("clip value out of bounds");
+		throw new runtime_error("clip value out of bounds");
 }
 
 

@@ -1,4 +1,4 @@
-#include "WaterRenderer.h"
+#include "../includes/WaterRenderer.h"
 #define WIDTH 1080
 #define HEIGHT 900
 
@@ -20,9 +20,10 @@ WaterRenderer::WaterRenderer()
 	 reflectionFB = generateFrameBuffer();
 	 reflectionTEX = createTextureAttachment(REFR_WIDTH, REFR_HEIGHT);
 	 reflectionDEPTH = createDepthRenderBuffer(REFR_WIDTH, REFR_HEIGHT);
+	 string a = "refractionTexWater", b = "reflectionTexWater" ; 
 
-	 reference->addTexture(refractionTEX, string("refractionTexWater"));
-	 reference->addTexture(reflectionTEX, string("reflectionTexWater"));
+	 reference->addTexture(refractionTEX, a);
+	 reference->addTexture(reflectionTEX, b);
 
 	 UnBindFrameBuffer();
 }

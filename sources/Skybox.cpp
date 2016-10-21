@@ -1,4 +1,4 @@
-#include "Skybox.h"
+#include "../includes/Skybox.h"
 
 using namespace std;
 using namespace glm;
@@ -54,21 +54,18 @@ GLfloat VERTICES[] = {
 
 
 
-Skybox::Skybox(string& vertex,string& fragment) 
+Skybox::Skybox(string vertex,string fragment) 
 {
 
 	shader = ShaderReader(vertex, fragment);
-	texture = new Texture(string(), true);
-
-
-
-
-
+	string a(""); 
+	texture = new Texture(a,true);
 	
 	projectionMatrix = glGetUniformLocation(shader.getProgram(), "projection");
 	viewMatrix = glGetUniformLocation(shader.getProgram(), "view");
 	modelMatrix = glGetUniformLocation(shader.getProgram(), "model");
-	model = translate(model, vec3(0, 0, 0));
+	vec3 A(0,0,0); 
+	model = translate(model, A);
 
 
 	glGenBuffers(1, &buf);
@@ -85,7 +82,7 @@ Skybox::~Skybox()
 
 
 
-void Skybox::render(mat4 &projection,mat4 &vview) {
+void Skybox::render(const mat4 projection,const mat4 vview) {
 
 	
 	angle += 0.000001F;
@@ -122,6 +119,6 @@ void Skybox::render(mat4 &projection,mat4 &vview) {
 
 
 
-void Skybox::setScale(vec3& sc) {
+void Skybox::setScale(vec3 sc) {
 	scaleSkybox = sc;
 }

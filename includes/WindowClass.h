@@ -1,6 +1,5 @@
-#pragma once
-
-
+#ifndef WINDOWCLASS_H
+#define WINDOWCLASS_H
 #include "Mesh.h"
 
 class WindowClass
@@ -28,3 +27,6 @@ private:
 	GLenum glewinit;
 };
 
+
+
+#endif

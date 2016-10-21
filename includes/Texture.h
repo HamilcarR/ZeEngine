@@ -1,7 +1,5 @@
-#pragma once
-
-
-
+#ifndef TEXTURE_H
+#define TEXTURE_H
 
 #include <list>
 #include <algorithm>
@@ -10,13 +8,13 @@
 #include <fstream>
 #include <string>
 #include <GL/glew.h>
-#include <gl/GL.h>
-#include <gl/GLU.h>
-#include <SDL.h>
-#include<glm.hpp>
-#include<gtx/transform.hpp>
-#include<gtc/type_ptr.hpp>
-#include<SOIL.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <SDL2/SDL.h>
+#include<glm/glm.hpp>
+#include<glm/gtx/transform.hpp>
+#include<glm/gtc/type_ptr.hpp>
+#include<SOIL/SOIL.h>
 
 
 
@@ -76,7 +74,7 @@ public:
 
 		}
 		else
-			throw new std::exception("addTexture , texture.h , getTexture==0");
+			throw new std::runtime_error("addTexture , texture.h , getTexture==0");
 	}
 
 
@@ -106,7 +104,7 @@ public:
 		
 		}
 		else
-			throw new std::exception("addTexture , texture.h , getTexture==0");
+			throw new std::runtime_error("addTexture , texture.h , getTexture==0");
 	}
 
 
@@ -206,4 +204,4 @@ private:
 
 
 
-
+#endif

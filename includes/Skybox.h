@@ -1,14 +1,15 @@
-#pragma once
+#ifndef SKYBOX_H
+#define SKYBOX_H
 #include "Mesh.h"
 
 class Skybox 
 {
 public:
-	Skybox(std::string& vertexShader,std::string& fragmentShader);
+	Skybox(std::string vertexShader,std::string fragmentShader);
 	~Skybox();
 
-	void render(glm::mat4 &projection,glm::mat4 &view);
-	void setScale(glm::vec3& scale);
+	void render(const glm::mat4 projection,const glm::mat4 view);
+	void setScale(glm::vec3 scale);
 
 private:
 
@@ -27,4 +28,7 @@ private:
 	
 
 };
+
+
+#endif
 

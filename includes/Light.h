@@ -1,4 +1,6 @@
-#pragma once
+#ifndef LIGHT_H
+#define LIGHT_H
+
 #include "Material.h"
 
 class Light
@@ -42,3 +44,4 @@ protected:
 
 };
 
+#endif

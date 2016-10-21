@@ -1,4 +1,4 @@
-#include "PointLight.h"
+#include "../includes/PointLight.h"
 
 
 using namespace std;

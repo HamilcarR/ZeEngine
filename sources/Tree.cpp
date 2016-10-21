@@ -1,4 +1,4 @@
-#include "Tree.h"
+#include "../includes/Tree.h"
 
 #include <random>
 
@@ -58,7 +58,8 @@ void Leaf::render(glm::mat4 projection, glm::mat4 view,Lights &lights) {
 	angle += 0.01F;
 	for (list<Mesh*>::iterator E = leaf_model->begin(); E != leaf_model->end();E++) {
 		(*E)->setPosition(leaf_translation);
-		(*E)->setRotation(vec3(1,0,0) ,angle );
+		vec3 A(1,0,0);
+		(*E)->setRotation(A ,angle );
 		(*E)->setLights(lights);
 		
 	}
@@ -125,7 +126,8 @@ void Tree::setPosition(vec3 &pos, vec4 &rot) {
 	rotation = rot;
 	for (std::list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++) {
 		(*it)->setPosition(position);
-		(*it)->setRotation(glm::vec3(rotation.x, rotation.y, rotation.z), rotation.w);
+		vec3 A(rotation.x, rotation.y, rotation.z);
+		(*it)->setRotation(A, rotation.w);
 	}
 }
 
@@ -139,7 +141,8 @@ void Tree::setPosition(vec3 &pos) {
 void Tree::setRotation( vec4 &rot) {
 	rotation = rot;
 	for (std::list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++) {
-		(*it)->setRotation(glm::vec3(rotation.x, rotation.y, rotation.z), rotation.w);
+		vec3 A(rotation.x, rotation.y, rotation.z);
+		(*it)->setRotation(A, rotation.w);
 	}
 }
 
@@ -161,11 +164,13 @@ void Tree::render(mat4 projection,mat4 view, Lights& lights) {
 		float angle = 0.0F;
 		for (list<Leaf*>::iterator E = leafs->begin(); E != leafs->end();E++) {
 			if ((*E)->getPosition().y > 0) {
-				(*E)->setPosition(vec3((*E)->getPosition().x, (*E)->getPosition().y - speed, (*E)->getPosition().z));
+				vec3 A(vec3((*E)->getPosition().x, (*E)->getPosition().y - speed, (*E)->getPosition().z));
+				(*E)->setPosition(A);
 				(*E)->render(projection, view, lights);
 			}
 			else {
-				(*E)->setPosition(vec3(position.x + (rand() % 10 + 1) / 10, 1.0F, position.z + (rand() % 10 + 1) / 10));
+				vec3 A(position.x + (rand() % 10 + 1) / 10, 1.0F, position.z + (rand() % 10 + 1) / 10);
+				(*E)->setPosition(A);
 				speed = (rand() % 10 + 1) / 1000.F;
 			}
 			angle += 0.01F;

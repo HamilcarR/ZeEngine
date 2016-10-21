@@ -1,7 +1,6 @@
-#pragma once
-#include "MasterObject.h"
-#include "CustomImporter.h"
-#include "Renderer.h"
+#include "../includes/MasterObject.h"
+#include "../includes/CustomImporter.h"
+#include "../includes/Renderer.h"
 
 
 
@@ -15,7 +14,7 @@ MasterObject::MasterObject() {
 	scale = vec3(1);
 }
 
-MasterObject::MasterObject(string &model, ShaderReader &shader, bool transparency, bool isDrawn,bool isStatic) {
+MasterObject::MasterObject(string model, ShaderReader shader, bool transparency, bool isDrawn,bool isStatic) {
 	rotation = vec4(0, 1, 0, 0);
 	position = vec3(0);
 	scale = vec3(1);
@@ -55,12 +54,13 @@ MasterObject::~MasterObject() {
 
 
 
-void MasterObject::render(glm::mat4& projection, glm::mat4& view, Lights &lights) {
+void MasterObject::render(glm::mat4 projection, glm::mat4 view, Lights &lights) {
 
 	for (list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++) {
 		(*it)->setLights(lights);
 		(*it)->setPosition(position);
-		(*it)->setRotation(vec3(rotation), rotation.a);
+		vec3 X(rotation);
+		(*it)->setRotation(X, rotation.a);
 		(*it)->setScale(scale);
 		(*it)->Load(view, projection, lights);
 	}
@@ -106,7 +106,7 @@ void MasterObject::setTexture(Texture* A , int position) {
 
 	instance->sort();
 }
-void MasterObject::setTexture(std::string& name, int position, GLuint tex) { 
+void MasterObject::setTexture(std::string name, int position, GLuint tex) { 
 	
 	for (Mesh* m : *liste) m->setTexture(name, position, tex); 
 
@@ -117,7 +117,7 @@ void MasterObject::setTexture(GLuint tex, int position) {
 	for (Mesh* m : *liste) m->setTexture(tex, position); 
 }
 
-void MasterObject::add_uniform_4f( float arg1, float arg2, float arg3, float arg4,string& name) {
+void MasterObject::add_uniform_4f( float arg1, float arg2, float arg3, float arg4,string name) {
 	cout << "MasterObject add uniform 4f " <<endl;
 
 	list<Mesh*>::iterator it = liste->begin();
@@ -126,7 +126,7 @@ void MasterObject::add_uniform_4f( float arg1, float arg2, float arg3, float arg
 
 }
 
-void MasterObject::add_uniform_1f(float arg1, string& name) {
+void MasterObject::add_uniform_1f(float arg1, string name) {
 
 	list<Mesh*>::iterator it = liste->begin();
 	GLuint U = glGetUniformLocation((*it)->getMaterial().getShader()->getProgram(), name.c_str());
@@ -137,25 +137,26 @@ void MasterObject::refresh_Uniform_4f(float arg0, float arg1, float arg2, float 
 	for_each(liste->begin(), liste->end(), [&, arg0, arg1, arg2, arg3, arg4](Mesh* M) {M->refresh_Uniform_4f(arg0, arg1, arg2, arg3, arg4); });
 }
 
-void MasterObject::setPosition(vec3 &pos, vec4 &rot) {
+void MasterObject::setPosition(vec3 pos, vec4 rot) {
 	position = pos;
 	rotation = rot;
 	for (std::list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++) {
 		(*it)->setPosition(position);
-		(*it)->setRotation(glm::vec3(rotation.x, rotation.y, rotation.z), rotation.w);
+		glm::vec3 A(rotation.x, rotation.y, rotation.z);
+		(*it)->setRotation(A, rotation.w);
 	}
 
 }
 
 
-void MasterObject::setScale(vec3& scalei) {
+void MasterObject::setScale(vec3 scalei) {
 	scale = scalei;
 	for (list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++) 
 		(*it)->setScale(scalei);
 
 }
 
-void MasterObject::setPosition(vec3 &pos) {
+void MasterObject::setPosition(vec3 pos) {
 	position = pos;
 	for (std::list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++) {
 		(*it)->setPosition(position);
@@ -163,11 +164,11 @@ void MasterObject::setPosition(vec3 &pos) {
 }
 
 
-void MasterObject::setRotation(vec4 &rot) {
+void MasterObject::setRotation(vec4 rot) {
 		rotation = rot;
 	for (std::list<Mesh*>::iterator it = liste->begin(); it != liste->end(); it++) {
-		
-		(*it)->setRotation(glm::vec3(rotation.x, rotation.y, rotation.z), rotation.w);
+		glm::vec3 A(rotation.x, rotation.y, rotation.z);
+		(*it)->setRotation(A, rotation.w);
 	}
 }
 

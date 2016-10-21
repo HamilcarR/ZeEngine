@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef MATERIAL_H
+#define MATERIAL_H
 #include "ShaderReader.h"
 #include <exception>
 #define SAMPLER_SIZE 20
@@ -25,7 +25,7 @@ public:
 			Sampler[position]->setTexture(tex);
 		else
 			
-			throw new std::exception("SET TEXTURE OUT OF BOUNDARIES : setTexture(GLuint,int) - Material.h");
+			throw new std::runtime_error("SET TEXTURE OUT OF BOUNDARIES : setTexture(GLuint,int) - Material.h");
 	}
 
 	void setTexture(std::string& name, int position,GLuint tex) {
@@ -54,7 +54,7 @@ public:
 			
 		}
 		else 
-			throw new std::exception("SET TEXTURE OUT OF BOUNDARIES : setTexture(Texture*,int) - Material.h");
+			throw new std::runtime_error("SET TEXTURE OUT OF BOUNDARIES : setTexture(Texture*,int) - Material.h");
 	}
 	ShaderReader* getShader() { return shader; }
 	void Bind();
@@ -91,3 +91,5 @@ private:
  public:
 	 bool operator()(Material& M1, Material &M2);
  };
+
+#endif

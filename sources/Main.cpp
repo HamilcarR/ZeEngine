@@ -1,13 +1,12 @@
 
-#pragma once
 
-#include "Tree.h"
-#include "Skybox.h"
-#include "Renderer.h"
-#include "WaterRenderer.h"
-#include "Water.h"
-#include "GUI.h"
-#include "PointLight.h"
+#include "../includes/Tree.h"
+#include "../includes/Skybox.h"
+#include "../includes/Renderer.h"
+#include "../includes/WaterRenderer.h"
+#include "../includes/Water.h"
+#include "../includes/GUI.h"
+#include "../includes/PointLight.h"
 #include <time.h>
 #define WIDTH 1080
 #define HEIGHT 900
@@ -137,7 +136,7 @@ int main(int argc, char**argv) {
 		
 		//tree->setPosition(vec3(6, 0, 3));
 		
-	Light* sun = new PointLight(vec3(0, 500, 0), vec3(0.8, 0.9, 0.7), 600000.F, vec3(10, 10, 10), string("lightPos[" + to_string(6) + "]"), string("lightColor[" + to_string(6) + "]"), string("lightIntensity[" + to_string(6) + "]"), string("attenuation[" + to_string(6) + "]"));
+/*	Light* sun = new PointLight(vec3(0, 500, 0), vec3(0.8, 0.9, 0.7), 600000.F, vec3(10, 10, 10), string("lightPos[" + to_string(6) + "]"), string("lightColor[" + to_string(6) + "]"), string("lightIntensity[" + to_string(6) + "]"), string("attenuation[" + to_string(6) + "]"));
 	lights.addLight(new PointLight(lightpos, lightColor, intensity, attenuation, string("lightPos[" + to_string(0) + "]"), string("lightColor[" + to_string(0) + "]"), string("lightIntensity[" + to_string(0) + "]"), string("attenuation[" + to_string(0) + "]")));
 	lights.addLight(new PointLight(vec3(4, 1, 4), vec3(0.6, 0.4, 0.3), 60.F, vec3(100, 1000, 10), string("lightPos[" + to_string(1) + "]"), string("lightColor[" + to_string(1) + "]"), string("lightIntensity[" + to_string(1) + "]"), string("attenuation[" + to_string(1) + "]")));
 	lights.addLight(new PointLight(vec3(-4, 1, -4),vec3(0.9, 0.7, 0.5), 60.F,vec3(10, 10, 10), string("lightPos[" + to_string(2) + "]"), string("lightColor[" + to_string(2) + "]"), string("lightIntensity[" + to_string(2) + "]"), string("attenuation[" + to_string(2) + "]")));
@@ -146,7 +145,7 @@ int main(int argc, char**argv) {
 	lights.addLight(new PointLight(vec3(7, 1, 0), vec3(0.4, 0.8, 0.3), 20.F, vec3(10, 10, 10), string("lightPos[" + to_string(5) + "]"), string("lightColor[" + to_string(5) + "]"), string("lightIntensity[" + to_string(5) + "]"), string("attenuation[" + to_string(5) + "]")));
 	lights.addLight(sun);
 	
-
+*/
 	
 	
 	while (window.getRun()) {

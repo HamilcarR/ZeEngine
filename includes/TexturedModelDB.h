@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEXTUREDMODELDB_H
+#define TEXTUREDMODELDB_H
 #include "MasterObject.h"
 #include <vector>
 
@@ -30,4 +31,5 @@ protected:
 
 
 };
+#endif
 
