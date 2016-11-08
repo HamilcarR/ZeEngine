@@ -1,12 +1,12 @@
 #include "../includes/WaterRenderer.h"
-#define WIDTH 1080
-#define HEIGHT 900
+constexpr int WIDTH =1080;
+constexpr int HEIGHT=900;
 
-#define REFR_WIDTH 2048
-#define REFL_WIDTH 2048
+constexpr REFR_WIDTH=2048;
+constexpr REFL_WIDTH=2048;
 
-#define REFL_HEIGHT 2048
-#define REFR_HEIGHT 2048
+constexpr REFL_HEIGHT=2048;
+constexpr REFR_HEIGHT=2048;
 
 using namespace std;
 WaterRenderer::WaterRenderer()
