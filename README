@@ -3,4 +3,15 @@
 
 
 A 3D engine written in OPENGL 4.x / C++ for a futur game
-(the horrific design shall be fixed soon)
+
+
+Will be rewritten from scratch in the repository "Echeyde"  with a new and better architecture,
+since this was only made for fun...meaning , no memory leaks checks , nor using full c++14 features,and bad design. 
+
+
+Nevertheless,here are some screenshots of what have been done so far : 
+
+![screenshot](https://cloud.githubusercontent.com/assets/18567118/20586830/3466ba1c-b208-11e6-8784-8c79e7243cb9.jpg)
+
+
+![screenshot](https://cloud.githubusercontent.com/assets/18567118/20586831/378b29e4-b208-11e6-908e-81fb179f5872.png)
