@@ -10,7 +10,7 @@ Still,here are some screenshots about what have been made so far :
     
 ![lights](https://cloud.githubusercontent.com/assets/18567118/20589695/6d156b90-b21e-11e6-8814-c68a3003a225.jpg)
   
--basic multi-texturing on terrain
+-simple multi-texturing on terrain
     
  ![multitex](https://cloud.githubusercontent.com/assets/18567118/20589698/6fd8a48c-b21e-11e6-9b6c-35357b8fcc81.jpg)
     
