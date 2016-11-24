@@ -9,22 +9,10 @@ A new version of this will be soon be located in a repository named : "Gayota" .
 Still,here are some screenshots about what have been made so far : 
 
 
-
-(3D models and their textures are not mine.
-trees and plants are from here : http://www.blendswap.com/blends/view/59269
-houses are from here : http://www.blendswap.com/blends/view/23807
-the statue is from here : http://archive3d.net/?a=download&id=051fc8f5#) 
-
-
-FEATURES:
-
     -Lighting : diffuse and specular lighting with point lights,using attenuation. 
     
     ![lights](https://cloud.githubusercontent.com/assets/18567118/20589695/6d156b90-b21e-11e6-8814-c68a3003a225.jpg)
-    
-    
-    
-    
+  
     -Texturing : basic multi-texturing on terrain
     
     ![multitex](https://cloud.githubusercontent.com/assets/18567118/20589698/6fd8a48c-b21e-11e6-9b6c-35357b8fcc81.jpg)
