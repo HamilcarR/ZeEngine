@@ -2,7 +2,7 @@
 An OpenGL 4.5/C++ prototype 3D engine.
 Will be rewritten from scratch with a new architecture,since this has been made for fun and testing,and doesn't take care of memory leaks,C++14
 features like smart pointers , multi threading etc...
-A new version of this will be soon located in a new repository named "Gayota" .
+A new version of this will be soon located in a new repository named "Echeyde" .
 Still,here are some screenshots about what has been made so far :
 
 
