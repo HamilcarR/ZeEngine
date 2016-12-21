@@ -29,7 +29,7 @@ when looking horizontally
 when looking vertically
 ![water](https://cloud.githubusercontent.com/assets/18567118/20591053/de523c04-b226-11e6-98e2-17450460fccf.jpg)
             
-and more : 
+-High poly static meshes rendering optimization : 
 ![](https://cloud.githubusercontent.com/assets/18567118/20587164/3c2c0376-b20b-11e6-83d4-a4d4935daee9.jpg)
 ![im](https://cloud.githubusercontent.com/assets/18567118/20586830/3466ba1c-b208-11e6-8784-8c79e7243cb9.jpg)
 
