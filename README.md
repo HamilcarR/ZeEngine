@@ -8,6 +8,7 @@ Still,here are some screenshots about what has been made so far :
 
 -diffuse and specular lighting with point lights,using attenuation. 
 ![lights](https://cloud.githubusercontent.com/assets/18567118/21291672/e387b4c2-c4e8-11e6-9686-d76d29d01b40.gif)  
+![lights](https://cloud.githubusercontent.com/assets/18567118/21417446/d4b76066-c81a-11e6-90b7-5a0c2ce592fa.gif)
 ![lights](https://cloud.githubusercontent.com/assets/18567118/20589695/6d156b90-b21e-11e6-8814-c68a3003a225.jpg)
 
 -simple multi-texturing on terrain
