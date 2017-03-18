@@ -5,7 +5,8 @@ features like smart pointers , multi threading etc...
 A new version of this will be soon located in a new repository named "Echeyde" .
 Still,here are some screenshots about what has been made so far :
 
-
+-High poly static meshes rendering optimization : 
+![](https://cloud.githubusercontent.com/assets/18567118/20587164/3c2c0376-b20b-11e6-83d4-a4d4935daee9.jpg)
 -diffuse and specular lighting with point lights,using attenuation. 
 ![lights](https://cloud.githubusercontent.com/assets/18567118/21291672/e387b4c2-c4e8-11e6-9686-d76d29d01b40.gif)  
 ![lights](https://cloud.githubusercontent.com/assets/18567118/21417446/d4b76066-c81a-11e6-90b7-5a0c2ce592fa.gif)
@@ -30,8 +31,7 @@ when looking horizontally
 when looking vertically
 ![water](https://cloud.githubusercontent.com/assets/18567118/20591053/de523c04-b226-11e6-98e2-17450460fccf.jpg)
             
--High poly static meshes rendering optimization : 
-![](https://cloud.githubusercontent.com/assets/18567118/20587164/3c2c0376-b20b-11e6-83d4-a4d4935daee9.jpg)
+
 -and lot of trees (I am not an elf):
 ![im](https://cloud.githubusercontent.com/assets/18567118/20586830/3466ba1c-b208-11e6-8784-8c79e7243cb9.jpg)
 ![](https://cloud.githubusercontent.com/assets/18567118/20589701/71bffc32-b21e-11e6-91d5-a4118e7df6ce.jpg)
